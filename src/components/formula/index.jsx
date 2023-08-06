@@ -3,7 +3,8 @@ export const CompoundInterestFunc = (
     rate,
     time,
     n,
-    additionalContribution
+    additionalContribution,
+    tax
 ) => {
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
@@ -22,6 +23,10 @@ export const CompoundInterestFunc = (
     for (let i = 0; i < periods; i++) {
         console.log(parseFloat(amount.toFixed(2)));
         amount = amount * (1 + rateDecimal / n) + additionalContribution;
+    }
+
+    if(tax) {
+        amount = amount - (amount * 0.195);
     }
 
     // Округлюємо результат до двох знаків після коми

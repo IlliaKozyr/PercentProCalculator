@@ -10,7 +10,7 @@ export const СalculatorForm = () => {
     const [additionalContribution, setAdditionalContribution] = useState("0");
     const [showResult, setShowResult] = useState("0");
     const [drawShowResult, setDrawShowResult] = useState(true);
-    
+    const [includeTax, setIncludeTax] = useState(false);
 
     console.log(
         initialAmount,
@@ -26,18 +26,22 @@ export const СalculatorForm = () => {
         const time = Number(numberOfYears);
         const n = Number(compoundingFrequency);
         const additional = Number(additionalContribution);
+        const tax = includeTax;
 
         const result = CompoundInterestFunc(
             principal,
             rate,
             time,
             n,
-            additional
+            additional,
+            tax,
         );
 
         setShowResult(result);
-        setDrawShowResult (false);
+        setDrawShowResult(false);
     };
+
+    console.log(includeTax)
     return (
         <>
             <div className="container">
@@ -106,22 +110,37 @@ export const СalculatorForm = () => {
                         }
                     />
 
+                    <div className="tax">
+                        <label>Чи потрібно враховувати податок? (19.5%)</label>
+                        <input
+                            type="checkbox"
+                            className="inputCheckBox"
+                            checked={includeTax}
+                            onChange={(event) =>
+                                setIncludeTax(event.target.checked)
+                            }
+                        />
+                    </div>
+
                     <button onClick={handleCalculate}>Розрахувати</button>
-                        {drawShowResult ? null : <div className="result">
-                        Через{" "}
-                        <span className="totalNumber">
-                            {numberOfYears === "1"
-                                ? "1 рік"
-                                : numberOfYears === "2" || numberOfYears === "3"
-                                ? numberOfYears + " роки"
-                                : numberOfYears + " років"}
-                        </span>{" "}
-                        інвестування Ви зможете накопичити{" "}
-                        <span className="totalNumber">{showResult}</span> грн.
-                    </div>}
+                    {drawShowResult ? null : (
+                        <div className="result">
+                            Через{" "}
+                            <span className="totalNumber">
+                                {numberOfYears === "1"
+                                    ? "1 рік"
+                                    : numberOfYears === "2" ||
+                                      numberOfYears === "3"
+                                    ? numberOfYears + " роки"
+                                    : numberOfYears + " років"}
+                            </span>{" "}
+                            інвестування Ви зможете накопичити{" "}
+                            <span className="totalNumber">{showResult}</span>{" "}
+                            грн.
+                        </div>
+                    )}
 
                     {console.log(showResult)}
-                    
                 </div>
             </div>
         </>
