@@ -1,3 +1,5 @@
+import { store } from "../../store";
+
 export const CompoundInterestFunc = (
     principal,
     rate,
@@ -21,13 +23,19 @@ export const CompoundInterestFunc = (
     // Розраховуємо складний відсоток з додатковими внесками
     let amount = principal;
     for (let i = 0; i < periods; i++) {
-        console.log(parseFloat(amount.toFixed(2)));
         amount = amount * (1 + rateDecimal / n) + additionalContribution;
+        store.addNumberForOnePeriod(parseFloat(amount.toFixed(2)));
     }
 
-    if(tax) {
-        amount = amount - (amount * 0.195);
-    }
+    let amountMinusTax;
+    let taxPaid;
+
+    amountMinusTax = amount - amount * 0.195;
+    store.addTax(parseFloat(amountMinusTax.toFixed(2)));
+
+    taxPaid = amount - amountMinusTax;
+    store.addTaxPaid(parseFloat(taxPaid.toFixed(2)));
+    store.addNumber(parseFloat(amount.toFixed(2)));
 
     // Округлюємо результат до двох знаків після коми
     return parseFloat(amount.toFixed(2));
