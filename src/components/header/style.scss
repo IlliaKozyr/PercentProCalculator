@@ -8,3 +8,10 @@
     max-width: 1300px;
     margin: 0 auto;
 }
+
+.navItem {
+    list-style-type: none;
+    a {
+        text-decoration: none;
+    }
+}
