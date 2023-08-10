@@ -135,6 +135,7 @@ export const СalculatorForm = () => {
                         </div>
 
                         <button
+                            className="button"
                             onClick={() => {
                                 handleCalculate();
                             }}
@@ -171,7 +172,7 @@ export const СalculatorForm = () => {
                                         </span>
                                     ) : null}
                                 </div>
-                                <button onClick={openPopup}>Детальна інформація</button>
+                                <button className="button" onClick={openPopup}>Детальна інформація</button>
                                 <div className="popup-wrap">
                                     <div className="popup-content">
                                         <span onClick={openPopup}></span>
