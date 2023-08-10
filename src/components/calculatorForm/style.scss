@@ -2,9 +2,9 @@
     margin: 0 auto;
     max-width: 1300px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 80vh; 
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
 .formBlock {
@@ -49,28 +49,27 @@ button {
     margin: 10px 0;
 }
 
-.inputCheckBox {   
+.inputCheckBox {
     -webkit-appearance: none;
-    -moz-appearance: none;  
+    -moz-appearance: none;
     appearance: none;
     width: 45px;
-    height: 26px;  
+    height: 26px;
     cursor: pointer;
     border-radius: 30px;
     border: 3px solid #206a09;
     cursor: pointer;
     position: relative;
     transition: 0.3s;
-  }
-  
-  .inputCheckBox:checked { 
+}
+
+.inputCheckBox:checked {
     background: #206a09;
     border: 3px solid #206a09;
-  }
-  
-  
-.inputCheckBox::before {   
-    content: '';
+}
+
+.inputCheckBox::before {
+    content: "";
     position: absolute;
     height: 18px;
     width: 18px;
@@ -80,20 +79,76 @@ button {
     left: 2px;
     transform: translateY(-50%);
     transition: 0.3s;
-  }
-  
-  .inputCheckBox:checked::before { 
+}
+
+.inputCheckBox:checked::before {
     background: #206a09;
     border: none;
     left: 17px;
-    background: white;  
-  }
+    background: white;
+}
 
-  .tax {
+.tax {
     display: flex;
     align-items: center;
     justify-content: space-between;
     label {
         padding-right: 10px;
     }
-  }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.popup-wrap {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-wrap.is-active {
+    display: block;
+}
+
+.popup-wrap .popup-content {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 45%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-wrap .popup-content span {
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.popup-wrap .popup-content span::after,
+.popup-wrap .popup-content span::before {
+    content: "";
+    width: 15px;
+    height: 4px;
+    background-color: black;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.popup-wrap .popup-content span::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}

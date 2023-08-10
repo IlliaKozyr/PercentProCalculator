@@ -5,7 +5,7 @@ class CalculatorStore {
         totalAmount: Number,
         tax: Number,
         taxPaid: Number,
-        periodValues: [],
+        periodValues: []
     };
 
     constructor() {
@@ -20,8 +20,13 @@ class CalculatorStore {
         this.numbers.tax = number;
     }
 
-    addNumberForOnePeriod(number) {
-        this.numbers.periodValues.push(number);
+    addNumberForOnePeriod(periodData) {
+        this.numbers.periodValues.push(periodData);
+    }
+
+    
+    clearNumberForOnePeriod() {
+        this.numbers.periodValues = [];
     }
 
     addTaxPaid(number) {

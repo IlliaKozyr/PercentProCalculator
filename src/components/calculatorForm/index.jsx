@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.scss";
 import { CompoundInterestFunc } from "../formula";
 import { store } from "../../store";
+import { FullInformation } from "./fullInfo";
 
 export const СalculatorForm = () => {
     const [initialAmount, setInitialAmount] = useState("0");
@@ -12,14 +13,6 @@ export const СalculatorForm = () => {
     const [showResult, setShowResult] = useState("0");
     const [drawShowResult, setDrawShowResult] = useState(true);
     const [includeTax, setIncludeTax] = useState(false);
-
-    console.log(
-        initialAmount,
-        interestRate,
-        numberOfYears,
-        compoundingFrequency,
-        additionalContribution
-    );
 
     const handleCalculate = () => {
         const principal = Number(initialAmount);
@@ -42,12 +35,22 @@ export const СalculatorForm = () => {
         setDrawShowResult(false);
     };
 
-    console.log(store);
+    function openPopup() {
+        let popup = document.querySelector(".popup-wrap");
+
+        if (popup.classList.contains("is-active")) {
+            popup.classList.remove("is-active");
+        } else {
+            popup.classList.add("is-active");
+        }
+    }
 
     return (
         <>
-            {Object.values(store).map((number) => (
-                <div className="container">
+            {Object.values(store).map((number, index) => (
+                <div className="container" key={index}>
+                    {console.log(number)}
+
                     <div className="formBlock">
                         <label>Введіть початкову суму:</label>
                         <input
@@ -139,34 +142,43 @@ export const СalculatorForm = () => {
                             Розрахувати
                         </button>
                         {drawShowResult ? null : (
-                            <div className="result">
-                                Через{" "}
-                                <span className="totalNumber">
-                                    {numberOfYears === "1"
-                                        ? "1 рік"
-                                        : numberOfYears === "2" ||
-                                          numberOfYears === "3"
-                                        ? numberOfYears + " роки"
-                                        : numberOfYears + " років"}
-                                </span>{" "}
-                                інвестування Ви зможете накопичити{" "}
-                                <span className="totalNumber">
-                                    {showResult} грн.
-                                </span>{" "}
-                                {includeTax ? (
-                                    <span>
-                                        Ви заплатите{" "}
-                                        <span className="totalNumber">
-                                            {number.taxPaid} грн.
-                                        </span>{" "}
-                                        податку. Сума з вирахуванням податку
-                                        становить{" "}
-                                        <span className="totalNumber">
-                                            {number.tax} грн.
-                                        </span>{" "}
-                                    </span>
-                                ) : null}
-                            </div>
+                            <>
+                                <div className="result">
+                                    Через{" "}
+                                    <span className="totalNumber">
+                                        {numberOfYears === "1"
+                                            ? "1 рік"
+                                            : numberOfYears === "2" ||
+                                              numberOfYears === "3"
+                                            ? numberOfYears + " роки"
+                                            : numberOfYears + " років"}
+                                    </span>{" "}
+                                    інвестування Ви зможете накопичити{" "}
+                                    <span className="totalNumber">
+                                        {showResult} грн.
+                                    </span>{" "}
+                                    {includeTax ? (
+                                        <span>
+                                            Ви заплатите{" "}
+                                            <span className="totalNumber">
+                                                {number.taxPaid} грн.
+                                            </span>{" "}
+                                            податку. Сума з вирахуванням податку
+                                            становить{" "}
+                                            <span className="totalNumber">
+                                                {number.tax} грн.
+                                            </span>{" "}
+                                        </span>
+                                    ) : null}
+                                </div>
+                                <button onClick={openPopup}>Детальна інформація</button>
+                                <div className="popup-wrap">
+                                    <div className="popup-content">
+                                        <span onClick={openPopup}></span>
+                                        <FullInformation />
+                                    </div>
+                                </div>
+                            </>
                         )}
                     </div>
                 </div>

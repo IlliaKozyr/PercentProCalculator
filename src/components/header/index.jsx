@@ -9,7 +9,7 @@ export const Header = () => {
                 <div>
                     <img src={logoImg} alt="logo" className="logo" />
                 </div>
-                <nav>
+                <nav className="mainMenu">
                     <ul>
                         <li className="navItem"><a href="/">Калькулятор складного відсотка</a></li>
                     </ul>

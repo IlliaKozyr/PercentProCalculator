@@ -16,6 +16,7 @@ export const CompoundInterestFunc = (
     let amountMinusTax;
     let taxPaid;
     let amount = principal;
+    let year;
 
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
@@ -24,9 +25,23 @@ export const CompoundInterestFunc = (
     // additionalContribution - додатковий внесок на кожен період
 
     // Розраховуємо складний відсоток з додатковими внесками
+    store.clearNumberForOnePeriod()
+
     for (let i = 0; i < periods; i++) {
         amount = amount * (1 + rateDecimal / n) + additionalContribution;
-        store.addNumberForOnePeriod(parseFloat(amount.toFixed(2)));
+        amountMinusTax = amount - amount * 0.195;
+        taxPaid = amount - amountMinusTax;
+        year = i + 1;
+        // store.addNumberForOnePeriod(parseFloat(amount.toFixed(2)), i);
+
+        var periodData = {
+            amount: parseFloat(amount.toFixed(2)),
+            amountMinusTax: parseFloat(amountMinusTax.toFixed(2)),
+            taxPaid: parseFloat(taxPaid.toFixed(2)),
+            year: parseFloat(year),
+        };
+    
+        store.addNumberForOnePeriod(periodData);
     }
 
     amountMinusTax = amount - amount * 0.195;
