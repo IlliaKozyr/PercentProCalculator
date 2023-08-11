@@ -11,7 +11,7 @@ export const Header = () => {
                 </div>
                 <nav className="mainMenu">
                     <ul>
-                        <li className="navItem"><a href="/">Калькулятор складного відсотка</a></li>
+                        {/* <li className="navItem"><a href="/">Калькулятор складного відсотка</a></li> */}
                     </ul>
                 </nav>
             </div>
