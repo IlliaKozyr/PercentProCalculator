@@ -156,8 +156,13 @@ export const СalculatorForm = () => {
                                     </span>{" "}
                                     інвестування Ви зможете накопичити{" "}
                                     <span className="totalNumber">
-                                        {showResult} грн.
+                                        {`${showResult} грн.`}
                                     </span>{" "}
+                                    (
+                                    <span className="totalNumber">
+                                        {`${number.periodValues[number.periodValues.length - 1].earnedPercentage} %`}
+                                    </span>{" "}
+                                    від початкової суми).{" "}
                                     {includeTax ? (
                                         <span>
                                             Ви заплатите{" "}

@@ -22,6 +22,7 @@ export const CompoundInterestFunc = (
     let incomeInPercentage;
     let incomeForTheYearPercentFull;
     let incomeForTheYearPercentWithoutAttachment;
+    let earnedPercentage;
 
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
@@ -43,9 +44,9 @@ export const CompoundInterestFunc = (
         incomeInPercentage = incomeForThePastYear - additionalContribution;
 
         incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
-        incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100)
-        console.log(incomeForTheYearPercentFull, incomeForTheYearPercentWithoutAttachment)
-
+        incomeForTheYearPercentWithoutAttachment =
+            incomeInPercentage / (amount / 100);
+        earnedPercentage = ((amount - principal) / principal) * 100;
         var periodData = {
             amount: parseFloat(amount.toFixed(2)),
             amountMinusTax: parseFloat(amountMinusTax.toFixed(2)),
@@ -53,19 +54,17 @@ export const CompoundInterestFunc = (
             year: parseFloat(year),
             incomeForTheYear: parseFloat(incomeForThePastYear.toFixed(2)),
             incomeInPercentage: parseFloat(incomeInPercentage.toFixed(2)),
-            incomeForTheYearPercentFull: parseFloat(incomeForTheYearPercentFull.toFixed(2)),
-            incomeForTheYearPercentWithoutAttachment: parseFloat(incomeForTheYearPercentWithoutAttachment.toFixed(2)),
+            incomeForTheYearPercentFull: parseFloat(
+                incomeForTheYearPercentFull.toFixed(2)
+            ),
+            incomeForTheYearPercentWithoutAttachment: parseFloat(
+                incomeForTheYearPercentWithoutAttachment.toFixed(2)
+            ),
+            earnedPercentage: parseFloat(earnedPercentage.toFixed(2)),
         };
 
         store.addNumberForOnePeriod(periodData);
     }
-
-    amountMinusTax = amount - amount * 0.195;
-    store.addTax(parseFloat(amountMinusTax.toFixed(2)));
-
-    taxPaid = amount - amountMinusTax;
-    store.addTaxPaid(parseFloat(taxPaid.toFixed(2)));
-    store.addNumber(parseFloat(amount.toFixed(2)));
 
     // Округлюємо результат до двох знаків після коми
     return parseFloat(amount.toFixed(2));

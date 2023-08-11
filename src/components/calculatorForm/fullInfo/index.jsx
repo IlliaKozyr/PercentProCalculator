@@ -32,12 +32,6 @@ export const FullInformation = ({ compoundingFrequency }) => {
                     <table className="table">
                         <tr>
                             <td>
-                                {console.log(
-                                    number.year +
-                                        (compoundingFrequency === "1"
-                                            ? " рік"
-                                            : " місяць")
-                                )}
                                 <div>
                                     {compoundingFrequency === "1"
                                         ? `${number.year} рік`
