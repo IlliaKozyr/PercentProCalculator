@@ -19,6 +19,9 @@ export const FullInformation = () => {
                     <td>
                         <div>Заплатите податку</div>
                     </td>
+                    <td>
+                        <div>Прибуток за рік</div>
+                    </td>
                 </tr>
             </table>
             {Object.values(store.numbers.periodValues).map((number, index) => (
@@ -36,6 +39,9 @@ export const FullInformation = () => {
                             </td>
                             <td>
                                 <div>{number.taxPaid + " грн."}</div>
+                            </td>
+                            <td>
+                                <div>{number.incomeForTheYear + " грн."}</div>
                             </td>
                         </tr>
                     </table>
