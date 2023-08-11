@@ -49,7 +49,7 @@ export const СalculatorForm = () => {
         <>
             {Object.values(store).map((number, index) => (
                 <div className="container" key={index}>
-                    {console.log(number)}
+                  
 
                     <div className="formBlock">
                         <label>Введіть початкову суму:</label>
@@ -104,7 +104,7 @@ export const СalculatorForm = () => {
                             }
                         >
                             <option value="1">Річна</option>
-                            <option value="6">Піврічна</option>
+                            <option value="2">Піврічна</option>
                             <option value="4">Квартальна</option>
                             <option value="12">Місячна</option>
                         </select>
@@ -176,7 +176,7 @@ export const СalculatorForm = () => {
                                 <div className="popup-wrap">
                                     <div className="popup-content">
                                         <span onClick={openPopup}></span>
-                                        <FullInformation />
+                                        <FullInformation compoundingFrequency={compoundingFrequency}/>
                                     </div>
                                 </div>
                             </>

@@ -19,6 +19,9 @@ export const CompoundInterestFunc = (
     let year;
     let lastYearsAmount = 0;
     let incomeForThePastYear;
+    let incomeInPercentage;
+    let incomeForTheYearPercentFull;
+    let incomeForTheYearPercentWithoutAttachment;
 
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
@@ -37,8 +40,11 @@ export const CompoundInterestFunc = (
         year = i + 1;
 
         incomeForThePastYear = amount - lastYearsAmount;
+        incomeInPercentage = incomeForThePastYear - additionalContribution;
 
-        console.log(incomeForThePastYear.toFixed(2));
+        incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
+        incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100)
+        console.log(incomeForTheYearPercentFull, incomeForTheYearPercentWithoutAttachment)
 
         var periodData = {
             amount: parseFloat(amount.toFixed(2)),
@@ -46,6 +52,9 @@ export const CompoundInterestFunc = (
             taxPaid: parseFloat(taxPaid.toFixed(2)),
             year: parseFloat(year),
             incomeForTheYear: parseFloat(incomeForThePastYear.toFixed(2)),
+            incomeInPercentage: parseFloat(incomeInPercentage.toFixed(2)),
+            incomeForTheYearPercentFull: parseFloat(incomeForTheYearPercentFull.toFixed(2)),
+            incomeForTheYearPercentWithoutAttachment: parseFloat(incomeForTheYearPercentWithoutAttachment.toFixed(2)),
         };
 
         store.addNumberForOnePeriod(periodData);
