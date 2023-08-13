@@ -110,6 +110,7 @@ body {
     position: fixed;
     display: none;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
 }
 
 .popup-wrap.is-active {
@@ -159,6 +160,7 @@ body {
 
 @media (max-width: 640px) {
     .popup-wrap .popup-content {
+        
         overflow: auto;
         border-radius: 0px;
         width: 90%;

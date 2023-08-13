@@ -15,6 +15,7 @@ export const CompoundInterestFunc = (
 
     let amountMinusTax;
     let taxPaid;
+    let totalTaxPaid = 0;
     let amount = principal;
     let year;
     let lastYearsAmount = 0;
@@ -43,11 +44,13 @@ export const CompoundInterestFunc = (
         incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100)
         earnedPercentage = ((amount - principal) / principal) * 100;
         taxPaid = incomeInPercentage * 0.195;
-        amountMinusTax = amount - taxPaid;
+        totalTaxPaid += parseFloat(taxPaid);
+        amountMinusTax = amount - totalTaxPaid;
         var periodData = {
             amount: parseFloat(amount.toFixed(2)),
             amountMinusTax: parseFloat(amountMinusTax.toFixed(2)),
             taxPaid: parseFloat(taxPaid.toFixed(2)),
+            totalTaxPaid: parseFloat(totalTaxPaid.toFixed(2)),
             year: parseFloat(year),
             incomeForTheYear: parseFloat(incomeForThePastYear.toFixed(2)),
             incomeInPercentage: parseFloat(incomeInPercentage.toFixed(2)),

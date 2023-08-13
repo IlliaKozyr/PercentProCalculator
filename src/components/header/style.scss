@@ -1,35 +1,140 @@
-
-.headerBlock {
+.header {
+    // position: fixed;
     padding: 20px 0px;
-    display: flex;
-    max-width: 1300px;
-    margin: 0 auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .headerContainer {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+    }
 
     .logo {
         width: 300px;
+        z-index: 30;
+        position: relative;
     }
 
-    .mainMenu {
-        .navItem {
-            list-style-type: none;
-            a {
-                text-decoration: none;
+    .menuBody {
+        .menuList {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            li {
+                list-style-type: none;
+                padding: 0 20px;
+                .menuLink {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 18px;
+                }
             }
         }
     }
-    
 }
 
-@media (max-width: 640px) {
-    .headerBlock {
-        
+.menuList > li {
+    position: relative;
+}
+
+.menuIcon {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .header {
         .logo {
             width: 200px;
+            z-index: 11;
         }
-        
+        .menuBody {
+            position: fixed;
+            overflow: auto;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translate(-100%, 0px);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 100px 0;
+            transition: all 0.3s ease 0s;
+            z-index: 10;
+
+            .menuList {
+                display: flex;
+                align-items: center;
+                padding-left: 0px;
+                align-items: start;
+                font-size: 20px;
+            }
+            .menuList > li {
+                margin: 0px 0px 20px 0px;
+            }
+
+            .menuList > li:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .menuBody._active {
+            transform: translate(0px, 0px);
+        }
+
+        .menuIcon {
+            display: block;
+            width: 30px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+            z-index: 40;
+        }
+
+        .menuIcon span,
+        .menuIcon::before,
+        .menuIcon::after {
+            left: 0;
+            position: absolute;
+            height: 10%;
+            width: 100%;
+            transition: all 0.3s ease 0s;
+            background-color: green;
+        }
+
+        .menuIcon::before,
+        .menuIcon::after {
+            content: "";
+        }
+
+        .menuIcon::before {
+            top: 0;
+        }
+
+        .menuIcon::after {
+            bottom: 0;
+        }
+
+        .menuIcon span {
+            top: 50%;
+            transform: scale(1) translate(0px, -50%);
+        }
+
+        .menuIcon._active span {
+            transform: scale(0) translate(0px, -50%);
+        }
+
+        .menuIcon._active::before {
+            top: 50%;
+            transform: rotate(-45deg) translate(0px, -50%);
+        }
+
+        .menuIcon._active::after {
+            bottom: 50%;
+            transform: rotate(45deg) translate(0px, 50%);
+        }
     }
 }
-
-
-
-

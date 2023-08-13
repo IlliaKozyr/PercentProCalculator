@@ -17,7 +17,7 @@ export const FullInformation = ({ compoundingFrequency }) => {
                         <div>Вирухований податок</div>
                     </td>
                     <td>
-                        <div>Заплатите податку</div>
+                        <div>Заплатите податок за період</div>
                     </td>
                     <td>
                         <div>Збільшення капіталу за період (%)</div>

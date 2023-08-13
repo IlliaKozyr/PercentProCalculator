@@ -5,6 +5,10 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
 
+body._lock {
+  overflow: hidden;
+}
+
 .button {
   background-color: #206a09;
   color: #ffffff;

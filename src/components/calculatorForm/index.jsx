@@ -168,7 +168,7 @@ export const СalculatorForm = () => {
                                         <span>
                                             Ви заплатите{" "}
                                             <span className="totalNumber">
-                                                {number.periodValues[number.periodValues.length - 1].taxPaid} грн.
+                                                {number.periodValues[number.periodValues.length - 1].totalTaxPaid} грн.
                                             </span>{" "}
                                             податку. Сума з вирахуванням податку
                                             становить{" "}
