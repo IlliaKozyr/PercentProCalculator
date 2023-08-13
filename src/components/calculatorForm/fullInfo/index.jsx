@@ -20,10 +20,10 @@ export const FullInformation = ({ compoundingFrequency }) => {
                         <div>Заплатите податку</div>
                     </td>
                     <td>
-                        <div>Прибуток за рік</div>
+                        <div>Збільшення капіталу за період (%)</div>
                     </td>
                     <td>
-                        <div>Прибуток за рік (%)</div>
+                        <div>Чистий прибуток за період (%)</div>
                     </td>
                 </tr>
             </table>

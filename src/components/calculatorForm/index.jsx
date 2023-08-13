@@ -8,7 +8,7 @@ export const СalculatorForm = () => {
     const [initialAmount, setInitialAmount] = useState("0");
     const [interestRate, setInterestRate] = useState("0");
     const [numberOfYears, setNumberOfYears] = useState("1");
-    const [compoundingFrequency, setCompoundingFrequency] = useState("1");
+    const [compoundingFrequency, setCompoundingFrequency] = useState("12");
     const [additionalContribution, setAdditionalContribution] = useState("0");
     const [showResult, setShowResult] = useState("0");
     const [drawShowResult, setDrawShowResult] = useState(true);
@@ -106,7 +106,8 @@ export const СalculatorForm = () => {
                             <option value="1">Річна</option>
                             <option value="2">Піврічна</option>
                             <option value="4">Квартальна</option>
-                            <option value="12">Місячна</option>
+                            <option value="12" selected>Місячна</option>
+                            <option value="365">Щодня</option>
                         </select>
 
                         <label>
@@ -167,16 +168,17 @@ export const СalculatorForm = () => {
                                         <span>
                                             Ви заплатите{" "}
                                             <span className="totalNumber">
-                                                {number.taxPaid} грн.
+                                                {number.periodValues[number.periodValues.length - 1].taxPaid} грн.
                                             </span>{" "}
                                             податку. Сума з вирахуванням податку
                                             становить{" "}
                                             <span className="totalNumber">
-                                                {number.tax} грн.
+                                                {number.periodValues[number.periodValues.length - 1].amountMinusTax} грн.
                                             </span>{" "}
                                         </span>
                                     ) : null}
                                 </div>
+                                {console.log(number, "number")}
                                 <button className="button" onClick={openPopup}>Детальна інформація</button>
                                 <div className="popup-wrap">
                                     <div className="popup-content">
