@@ -188,6 +188,7 @@ export const СalculatorForm = () => {
                                         <span>
                                             Ви заплатите{" "}
                                             <span className="totalNumber">
+<<<<<<< HEAD
                                                 {
                                                     number.periodValues[
                                                         number.periodValues
@@ -195,6 +196,9 @@ export const СalculatorForm = () => {
                                                     ].taxPaid
                                                 }{" "}
                                                 грн.
+=======
+                                                {number.periodValues[number.periodValues.length - 1].totalTaxPaid} грн.
+>>>>>>> 66787b2 (burger menu done)
                                             </span>{" "}
                                             податку. Сума з вирахуванням податку
                                             становить{" "}

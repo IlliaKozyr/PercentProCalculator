@@ -15,6 +15,7 @@ export const CompoundInterestFunc = (
 
     let amountMinusTax;
     let taxPaid;
+    let totalTaxPaid = 0;
     let amount = principal;
     let year;
     let lastYearsAmount = 0;
@@ -50,6 +51,7 @@ export const CompoundInterestFunc = (
             amount: parseFloat(amount.toFixed(2)),
             amountMinusTax: parseFloat(amountMinusTax.toFixed(2)),
             taxPaid: parseFloat(taxPaid.toFixed(2)),
+            totalTaxPaid: parseFloat(totalTaxPaid.toFixed(2)),
             year: parseFloat(year),
             incomeForTheYear: parseFloat(incomeForThePastYear.toFixed(2)),
             incomeInPercentage: parseFloat(incomeInPercentage.toFixed(2)),
