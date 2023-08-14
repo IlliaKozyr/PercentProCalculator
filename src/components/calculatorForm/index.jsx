@@ -49,8 +49,6 @@ export const СalculatorForm = () => {
         <>
             {Object.values(store).map((number, index) => (
                 <div className="container" key={index}>
-                  
-
                     <div className="formBlock">
                         <label>Введіть початкову суму:</label>
                         <input
@@ -103,11 +101,13 @@ export const СalculatorForm = () => {
                                 setCompoundingFrequency(event.target.value)
                             }
                         >
-                            <option value="1">Річна</option>
-                            <option value="2">Піврічна</option>
-                            <option value="4">Квартальна</option>
-                            <option value="12" selected>Місячна</option>
+                            <option value="12" defaultValue>
+                                Місячна
+                            </option>
                             <option value="365">Щодня</option>
+                            <option value="4">Квартальна</option>
+                            <option value="2">Піврічна</option>
+                            <option value="1">Річна</option>
                         </select>
 
                         <label>
@@ -161,29 +161,51 @@ export const СalculatorForm = () => {
                                     </span>{" "}
                                     (
                                     <span className="totalNumber">
-                                        {`${number.periodValues[number.periodValues.length - 1].earnedPercentage} %`}
+                                        {`${
+                                            number.periodValues[
+                                                number.periodValues.length - 1
+                                            ].earnedPercentage
+                                        } %`}
                                     </span>{" "}
                                     від початкової суми).{" "}
                                     {includeTax ? (
                                         <span>
                                             Ви заплатите{" "}
                                             <span className="totalNumber">
-                                                {number.periodValues[number.periodValues.length - 1].totalTaxPaid} грн.
+                                                {
+                                                    number.periodValues[
+                                                        number.periodValues
+                                                            .length - 1
+                                                    ].totalTaxPaid
+                                                }{" "}
+                                                грн.
                                             </span>{" "}
                                             податку. Сума з вирахуванням податку
                                             становить{" "}
                                             <span className="totalNumber">
-                                                {number.periodValues[number.periodValues.length - 1].amountMinusTax} грн.
+                                                {
+                                                    number.periodValues[
+                                                        number.periodValues
+                                                            .length - 1
+                                                    ].amountMinusTax
+                                                }{" "}
+                                                грн.
                                             </span>{" "}
                                         </span>
                                     ) : null}
                                 </div>
                                 {console.log(number, "number")}
-                                <button className="button" onClick={openPopup}>Детальна інформація</button>
+                                <button className="button" onClick={openPopup}>
+                                    Детальна інформація
+                                </button>
                                 <div className="popup-wrap">
                                     <div className="popup-content">
                                         <span onClick={openPopup}></span>
-                                        <FullInformation compoundingFrequency={compoundingFrequency}/>
+                                        <FullInformation
+                                            compoundingFrequency={
+                                                compoundingFrequency
+                                            }
+                                        />
                                     </div>
                                 </div>
                             </>
