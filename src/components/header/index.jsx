@@ -42,7 +42,7 @@ export const Header = () => {
                             </li>
                             <li>
                                 <a href="/" className="menuLink">
-                                    beta 1
+                                    beta 1.01
                                 </a>
                             </li>
                         </ul>
