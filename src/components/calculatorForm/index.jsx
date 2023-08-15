@@ -70,7 +70,7 @@ export const СalculatorForm = () => {
                                     }
                                 />
 
-                                <label>Введіть річну ставку</label>
+                                <label>Введіть річну ставку:</label>
                             </div>
                         </div>
 
