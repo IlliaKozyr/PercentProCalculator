@@ -60,6 +60,6 @@ export const CompoundInterestFunc = (
         store.addNumberForOnePeriod(periodData);
     }
     
-    // Округлюємо результат до двох знаків після коми
+  
     return parseFloat(amount.toFixed(2));
 };
