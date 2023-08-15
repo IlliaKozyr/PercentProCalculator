@@ -15,7 +15,6 @@ export const CompoundInterestFunc = (
 
     let amountMinusTax;
     let taxPaid;
-    let totalTaxPaid = 0;
     let amount = principal;
     let year;
     let lastYearsAmount = 0;
@@ -23,7 +22,6 @@ export const CompoundInterestFunc = (
     let incomeInPercentage;
     let incomeForTheYearPercentFull;
     let incomeForTheYearPercentWithoutAttachment;
-    let earnedPercentage;
 
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
@@ -37,31 +35,38 @@ export const CompoundInterestFunc = (
     for (let i = 0; i < periods; i++) {
         lastYearsAmount = amount;
         amount = amount * (1 + rateDecimal / n) + additionalContribution;
+        amountMinusTax = amount - amount * 0.195;
+        taxPaid = amount - amountMinusTax;
         year = i + 1;
+
         incomeForThePastYear = amount - lastYearsAmount;
         incomeInPercentage = incomeForThePastYear - additionalContribution;
+
         incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
         incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100)
-        earnedPercentage = ((amount - principal) / principal) * 100;
-        taxPaid = incomeInPercentage * 0.195;
-        totalTaxPaid += parseFloat(taxPaid);
-        amountMinusTax = amount - totalTaxPaid;
+        console.log(incomeForTheYearPercentFull, incomeForTheYearPercentWithoutAttachment)
+
         var periodData = {
             amount: parseFloat(amount.toFixed(2)),
             amountMinusTax: parseFloat(amountMinusTax.toFixed(2)),
             taxPaid: parseFloat(taxPaid.toFixed(2)),
-            totalTaxPaid: parseFloat(totalTaxPaid.toFixed(2)),
             year: parseFloat(year),
             incomeForTheYear: parseFloat(incomeForThePastYear.toFixed(2)),
             incomeInPercentage: parseFloat(incomeInPercentage.toFixed(2)),
             incomeForTheYearPercentFull: parseFloat(incomeForTheYearPercentFull.toFixed(2)),
-            incomeForTheYearPercentWithoutAttachment: parseFloat(incomeForTheYearPercentWithoutAttachment.toFixed(2)),
-            earnedPercentage: parseFloat(earnedPercentage.toFixed(2)),
+            incomeForTheYearPercentWithoutAttachment: parseFloat(incomeForTheYearPercentWithoutAttachment.toFixed(2))
         };
 
         store.addNumberForOnePeriod(periodData);
     }
-    
+
+    amountMinusTax = amount - amount * 0.195;
+    store.addTax(parseFloat(amountMinusTax.toFixed(2)));
+
+    taxPaid = amount - amountMinusTax;
+    store.addTaxPaid(parseFloat(taxPaid.toFixed(2)));
+    store.addNumber(parseFloat(amount.toFixed(2)));
+
     // Округлюємо результат до двох знаків після коми
     return parseFloat(amount.toFixed(2));
 };

@@ -109,13 +109,12 @@ export const СalculatorForm = () => {
                                         )
                                     }
                                 >
-                                    <option value="12" defaultValue>
+                                    <option value="12" >
                                         Місячна
                                     </option>
-                                    <option value="365">Щодня</option>
                                     <option value="4">Квартальна</option>
                                     <option value="2">Піврічна</option>
-                                    <option value="1">Річна</option>
+                                    <option value="1" defaultValue>Річна</option>
                                 </select>
                                 <label>
                                     Виберіть частоту складання відсотків:
@@ -193,7 +192,7 @@ export const СalculatorForm = () => {
                                                     number.periodValues[
                                                         number.periodValues
                                                             .length - 1
-                                                    ].totalTaxPaid
+                                                    ].taxPaid
                                                 }{" "}
                                                 грн.
                                             </span>{" "}
