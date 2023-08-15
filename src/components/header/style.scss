@@ -67,9 +67,8 @@
 
             .menuList {
                 display: flex;
-                align-items: center;
                 padding-left: 0px;
-                align-items: start;
+                align-items: flex-start;
                 font-size: 20px;
             }
             .menuList > li {
