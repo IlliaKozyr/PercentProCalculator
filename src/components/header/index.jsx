@@ -40,6 +40,11 @@ export const Header = () => {
                                     Розділ 3
                                 </a>
                             </li>
+                            <li>
+                                <a href="/" className="menuLink">
+                                    beta 1.01
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

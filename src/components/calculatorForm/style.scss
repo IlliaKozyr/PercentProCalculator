@@ -15,6 +15,12 @@
     padding: 5%;
     background-color: rgba($color: #a6a6a6, $alpha: 0.7);
     border-radius: 15px;
+    .inputBlock {
+        div {
+            display: flex;
+            flex-direction: column-reverse
+        }
+    }
 }
 
 .result {
@@ -187,5 +193,31 @@ body {
         height: 100vh;
     }
 
+    
 
+}
+
+@media (max-width: 767px) {
+    .formBlock {
+        padding: 5%;
+        margin: 3%;
+        width: 100%;
+        .inputBlock {
+            display: flex;
+            justify-content: space-between;
+            div {
+                display: flex;
+                width: 45%;
+                flex-direction: column-reverse;
+                label {
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        label {
+            font-size: 12px;
+        }
+    }
+    
 }

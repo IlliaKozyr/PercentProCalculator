@@ -49,28 +49,30 @@ export const СalculatorForm = () => {
         <>
             {Object.values(store).map((number, index) => (
                 <div className="container" key={index}>
-                  
-
                     <div className="formBlock">
-                        <label>Введіть початкову суму:</label>
-                        <input
-                            type="number"
-                            value={initialAmount}
-                            onChange={(event) =>
-                                setInitialAmount(event.target.value)
-                            }
-                        />
+                        <div className="inputBlock">
+                            <div>
+                                <input
+                                    type="number"
+                                    value={interestRate}
+                                    onChange={(event) =>
+                                        setInterestRate(event.target.value)
+                                    }
+                                />
+                                <label>Введіть початкову суму:</label>
+                            </div>
+                            <div>
+                                <input
+                                    type="number"
+                                    value={initialAmount}
+                                    onChange={(event) =>
+                                        setInitialAmount(event.target.value)
+                                    }
+                                />
 
-                        <label>
-                            Введіть річну процентну ставку (у відсотках)
-                        </label>
-                        <input
-                            type="number"
-                            value={interestRate}
-                            onChange={(event) =>
-                                setInterestRate(event.target.value)
-                            }
-                        />
+                                <label>Введіть річну ставку:</label>
+                            </div>
+                        </div>
 
                         <label>Виберіть термін вкладу:</label>
                         <select
@@ -96,30 +98,44 @@ export const СalculatorForm = () => {
                             <option value="40">40 років</option>
                         </select>
 
-                        <label>Виберіть частоту складання відсотків:</label>
-                        <select
-                            value={compoundingFrequency}
-                            onChange={(event) =>
-                                setCompoundingFrequency(event.target.value)
-                            }
-                        >
-                            <option value="1">Річна</option>
-                            <option value="2">Піврічна</option>
-                            <option value="4">Квартальна</option>
-                            <option value="12" selected>Місячна</option>
-                            <option value="365">Щодня</option>
-                        </select>
+                        <div className="inputBlock">
+                            <div>
+                                {" "}
+                                <select
+                                    value={compoundingFrequency}
+                                    onChange={(event) =>
+                                        setCompoundingFrequency(
+                                            event.target.value
+                                        )
+                                    }
+                                >
+                                    <option value="12" >
+                                        Місячна
+                                    </option>
+                                    <option value="4">Квартальна</option>
+                                    <option value="2">Піврічна</option>
+                                    <option value="1" defaultValue>Річна</option>
+                                </select>
+                                <label>
+                                    Виберіть частоту складання відсотків:
+                                </label>
+                            </div>
 
-                        <label>
-                            Введіть додатковий внесок на кожен період:
-                        </label>
-                        <input
-                            type="number"
-                            value={additionalContribution}
-                            onChange={(event) =>
-                                setAdditionalContribution(event.target.value)
-                            }
-                        />
+                            <div>
+                                <input
+                                    type="number"
+                                    value={additionalContribution}
+                                    onChange={(event) =>
+                                        setAdditionalContribution(
+                                            event.target.value
+                                        )
+                                    }
+                                />
+                                <label>
+                                    Введіть додатковий внесок на кожен період:
+                                </label>
+                            </div>
+                        </div>
 
                         <div className="tax">
                             <label>
@@ -161,29 +177,51 @@ export const СalculatorForm = () => {
                                     </span>{" "}
                                     (
                                     <span className="totalNumber">
-                                        {`${number.periodValues[number.periodValues.length - 1].earnedPercentage} %`}
+                                        {`${
+                                            number.periodValues[
+                                                number.periodValues.length - 1
+                                            ].earnedPercentage
+                                        } %`}
                                     </span>{" "}
                                     від початкової суми).{" "}
                                     {includeTax ? (
                                         <span>
                                             Ви заплатите{" "}
                                             <span className="totalNumber">
-                                                {number.periodValues[number.periodValues.length - 1].totalTaxPaid} грн.
+                                                {
+                                                    number.periodValues[
+                                                        number.periodValues
+                                                            .length - 1
+                                                    ].taxPaid
+                                                }{" "}
+                                                грн.
                                             </span>{" "}
                                             податку. Сума з вирахуванням податку
                                             становить{" "}
                                             <span className="totalNumber">
-                                                {number.periodValues[number.periodValues.length - 1].amountMinusTax} грн.
+                                                {
+                                                    number.periodValues[
+                                                        number.periodValues
+                                                            .length - 1
+                                                    ].amountMinusTax
+                                                }{" "}
+                                                грн.
                                             </span>{" "}
                                         </span>
                                     ) : null}
                                 </div>
                                 {console.log(number, "number")}
-                                <button className="button" onClick={openPopup}>Детальна інформація</button>
+                                <button className="button" onClick={openPopup}>
+                                    Детальна інформація
+                                </button>
                                 <div className="popup-wrap">
                                     <div className="popup-content">
                                         <span onClick={openPopup}></span>
-                                        <FullInformation compoundingFrequency={compoundingFrequency}/>
+                                        <FullInformation
+                                            compoundingFrequency={
+                                                compoundingFrequency
+                                            }
+                                        />
                                     </div>
                                 </div>
                             </>
