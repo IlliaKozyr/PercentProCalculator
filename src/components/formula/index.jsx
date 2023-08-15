@@ -68,5 +68,6 @@ export const CompoundInterestFunc = (
     store.addNumber(parseFloat(amount.toFixed(2)));
 
     // Округлюємо результат до двох знаків після коми
+    
     return parseFloat(amount.toFixed(2));
 };
