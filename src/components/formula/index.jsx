@@ -13,16 +13,16 @@ export const CompoundInterestFunc = (
     // Розраховуємо загальну кількість періодів
     const periods = n * time;
 
-    let amountMinusTax;
-    let taxPaid;
+    let amountMinusTax = 0;
+    let taxPaid = 0;
     let amount = principal;
-    let year;
+    let year = 0;
     let lastYearsAmount = 0;
-    let incomeForThePastYear;
-    let incomeInPercentage;
-    let incomeForTheYearPercentFull;
-    let incomeForTheYearPercentWithoutAttachment;
-    let earnedPercentage;
+    let incomeForThePastYear = 0;
+    let incomeInPercentage = 0;
+    let incomeForTheYearPercentFull = 0;
+    let incomeForTheYearPercentWithoutAttachment = 0;
+    let earnedPercentage = 0;
 
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
@@ -39,9 +39,23 @@ export const CompoundInterestFunc = (
         year = i + 1;
         incomeForThePastYear = amount - lastYearsAmount;
         incomeInPercentage = incomeForThePastYear - additionalContribution;
-        incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
-        incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100)
-        earnedPercentage = ((amount - principal) / principal) * 100;
+        // incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
+        // incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100);
+        if (amount !== 0) {
+            incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
+            incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100);
+        } else {
+            incomeForTheYearPercentFull = 0;
+            incomeForTheYearPercentWithoutAttachment = 0;
+        }
+        // earnedPercentage = ((amount - principal) / principal) * 100;
+        if (principal !== 0) {
+            earnedPercentage = ((amount - principal) / principal) * 100;
+        } else {
+            earnedPercentage = 0;
+        }
+
+        
         taxPaid = incomeInPercentage * 0.195;
         amountMinusTax = amount - taxPaid;
         var periodData = {

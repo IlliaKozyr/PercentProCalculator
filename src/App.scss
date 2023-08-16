@@ -26,3 +26,9 @@ body._lock {
 select:hover {
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .button {
+      width: 70%;
+    }
+}

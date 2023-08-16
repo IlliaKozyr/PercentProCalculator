@@ -6,31 +6,33 @@ export const FullInformation = ({ compoundingFrequency }) => {
     return (
         <div className="popup">
             <table className="table">
-                <tr>
-                    <td>
-                        <div>Рік</div>
-                    </td>
-                    <td>
-                        <div>Всього накопичено</div>
-                    </td>
-                    <td>
-                        <div>Вирухований податок</div>
-                    </td>
-                    <td>
-                        <div>Заплатите податку</div>
-                    </td>
-                    <td>
-                        <div>Збільшення капіталу за період (%)</div>
-                    </td>
-                    <td>
-                        <div>Чистий прибуток за період (%)</div>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>Рік</div>
+                        </td>
+                        <td>
+                            <div>Всього накопичено</div>
+                        </td>
+                        <td>
+                            <div>Вирахований податок</div>
+                        </td>
+                        <td>
+                            <div>Заплатите податку</div>
+                        </td>
+                        <td>
+                            <div>Збільшення капіталу за період (%)</div>
+                        </td>
+                        <td>
+                            <div>Чистий прибуток за період (%)</div>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
             {Object.values(store.numbers.periodValues).map((number, index) => (
-                <>
-                    <table className="table">
-                        <tr>
+                <table className="table" key={index}>
+                    <tbody key={index}>
+                        <tr key={index}>
                             <td>
                                 <div>
                                     {compoundingFrequency === "1"
@@ -60,8 +62,8 @@ export const FullInformation = ({ compoundingFrequency }) => {
                                 <div>{`${number.incomeInPercentage} грн. (${number.incomeForTheYearPercentWithoutAttachment} %)`}</div>
                             </td>
                         </tr>
-                    </table>
-                </>
+                    </tbody>
+                </table>
             ))}
         </div>
     );
