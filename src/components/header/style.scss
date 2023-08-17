@@ -10,7 +10,7 @@
         margin: 0 auto;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         padding-right: 20px;
     }
 
@@ -24,14 +24,17 @@
         .menuList {
             display: flex;
             align-items: center;
-            flex-direction: column;
+            flex-direction: row;
             li {
                 list-style-type: none;
                 padding: 0 20px;
                 .menuLink {
                     text-decoration: none;
-                    color: white;
+                    color: #6e6e6e;
                     font-size: 18px;
+                }
+                .menuLink:hover {
+                    opacity: 0.5;
                 }
             }
         }
@@ -52,6 +55,11 @@
             width: 200px;
             z-index: 11;
         }
+
+        .headerContainer {
+            justify-content: space-between;
+        }
+
         .menuBody {
             position: fixed;
             overflow: auto;
@@ -67,6 +75,7 @@
 
             .menuList {
                 display: flex;
+                flex-direction: column;
                 padding-left: 0px;
                 align-items: flex-start;
                 font-size: 20px;

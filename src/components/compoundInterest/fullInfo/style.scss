@@ -1,0 +1,21 @@
+.fullInfoBlock {
+    .fullInfoCard {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        
+    }
+}
+
+@media (max-width: 768px) {
+    .fullInfoBlock {
+        .fullInfoCard {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            
+        }
+    }
+}

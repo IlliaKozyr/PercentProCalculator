@@ -1,24 +1,31 @@
-import React from "react";
+import { React } from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 import logoImg from "./logo/logo.png";
 
 export const Header = () => {
+    const iconMenu = document.querySelector(".menuIcon");
+    const menuBody = document.querySelector(".menuBody");
+    
     const handleMenuIconClick = () => {
-        document.body.classList.toggle('_lock');
-        const iconMenu = document.querySelector(".menuIcon");
-        const menuBody = document.querySelector(".menuBody");
+        document.body.classList.toggle("_lock");
         if (iconMenu && menuBody) {
             iconMenu.classList.toggle("_active");
             menuBody.classList.toggle("_active");
         }
     };
 
+    const handleCloseBurger = () => {
+        iconMenu.classList.remove("_active");
+        menuBody.classList.remove("_active");
+    };
+
     return (
         <div className="header">
             <div className="headerContainer">
-                <a href="/">
+                <Link to="/сompound-interest">
                     <img src={logoImg} alt="logo" className="logo" />
-                </a>
+                </Link>
                 <div className="headerMenu menu">
                     <div className="menuIcon" onClick={handleMenuIconClick}>
                         <span></span>
@@ -26,19 +33,31 @@ export const Header = () => {
                     <nav className="menuBody">
                         <ul className="menuList">
                             <li>
-                                <a href="/" className="menuLink">
-                                    Калькулятор складного відсотка
-                                </a>
+                                <Link
+                                    to="/сompound-interest"
+                                    className="menuLink"
+                                    onClick={handleCloseBurger}
+                                >
+                                    Складний відсоток
+                                </Link>
                             </li>
                             <li>
-                                <a href="/" className="menuLink">
-                                    Розділ 2
-                                </a>
+                                <Link
+                                    to="/simple-interest"
+                                    className="menuLink"
+                                    onClick={handleCloseBurger}
+                                >
+                                    Простий відсоток
+                                </Link>
                             </li>
                             <li>
-                                <a href="/" className="menuLink">
-                                    Розділ 3
-                                </a>
+                                <Link
+                                    to="/сapital-gain"
+                                    className="menuLink"
+                                    onClick={handleCloseBurger}
+                                >
+                                    Приріст капіталу
+                                </Link>
                             </li>
                         </ul>
                     </nav>
