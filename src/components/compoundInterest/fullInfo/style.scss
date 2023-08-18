@@ -2,20 +2,39 @@
     .fullInfoCard {
         display: flex;
         list-style-type: none;
-        padding: 0;
-        margin: 0;
-        
+        border-radius: 15px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: rgba($color: #a6a6a6, $alpha: 0.5);
+        .infoContainer1 {
+            margin-right: 20%;
+        }
+        .time {
+            color: green;
+            font-size: 20px;
+        }
     }
+
 }
+
+.scrollButtonPopup {
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba($color: #a6a6a6, $alpha: 0.5);
+}
+
 
 @media (max-width: 768px) {
     .fullInfoBlock {
         .fullInfoCard {
             display: flex;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            
+            flex-direction: column;
+            margin-bottom: 10px;
+            .infoContainer {
+                li {
+                    margin: 5px 0px;
+                }
+            }
         }
     }
 }
