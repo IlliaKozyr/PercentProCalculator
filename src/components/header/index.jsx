@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.scss";
 import logoImg from "./logo/logo.png";
 
@@ -17,9 +17,9 @@ export const Header = () => {
     return (
         <div className="header">
             <div className="headerContainer">
-                <Link to="/сompound-interest">
+                <NavLink to="/сompound-interest">
                     <img src={logoImg} alt="logo" className="logo" />
-                </Link>
+                </NavLink>
                 <div className={`headerMenu menu ${isMenuOpen ? "_active" : ""}`}>
                     <div className="menuIcon" onClick={handleMenuIconClick}>
                         <span></span>
@@ -27,31 +27,31 @@ export const Header = () => {
                     <nav className={`menuBody ${isMenuOpen ? "_active" : ""}`}>
                         <ul className="menuList">
                             <li>
-                                <Link
+                                <NavLink
                                     to="/сompound-interest"
                                     className="menuLink"
                                     onClick={handleCloseBurger}
                                 >
                                     Складний відсоток
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
                                     to="/simple-interest"
                                     className="menuLink"
                                     onClick={handleCloseBurger}
                                 >
                                     Простий відсоток
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
                                     to="/сapital-gain"
                                     className="menuLink"
                                     onClick={handleCloseBurger}
                                 >
                                     Приріст капіталу
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>

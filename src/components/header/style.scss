@@ -28,13 +28,22 @@
             li {
                 list-style-type: none;
                 padding: 0 20px;
+                .menuLink.active {
+                    color: blue;
+                    cursor: default;
+                }
                 .menuLink {
                     text-decoration: none;
                     color: #6e6e6e;
                     font-size: 18px;
+                    
                 }
+                
                 .menuLink:hover {
                     opacity: 0.5;
+                }
+                .menuLink.active:hover {
+                    opacity: 1;
                 }
             }
         }
@@ -48,6 +57,7 @@
 .menuIcon {
     display: none;
 }
+
 
 @media (max-width: 768px) {
     .header {
