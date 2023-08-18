@@ -122,7 +122,7 @@ body {
     position: fixed;
     display: none;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 10001;
 }
 
 .popup-wrap.is-active {

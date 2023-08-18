@@ -1,23 +1,17 @@
-import { React } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 import logoImg from "./logo/logo.png";
 
 export const Header = () => {
-    const iconMenu = document.querySelector(".menuIcon");
-    const menuBody = document.querySelector(".menuBody");
-    
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const handleMenuIconClick = () => {
-        document.body.classList.toggle("_lock");
-        if (iconMenu && menuBody) {
-            iconMenu.classList.toggle("_active");
-            menuBody.classList.toggle("_active");
-        }
+        setIsMenuOpen(!isMenuOpen);
     };
 
     const handleCloseBurger = () => {
-        iconMenu.classList.remove("_active");
-        menuBody.classList.remove("_active");
+        setIsMenuOpen(false);
     };
 
     return (
@@ -26,11 +20,11 @@ export const Header = () => {
                 <Link to="/сompound-interest">
                     <img src={logoImg} alt="logo" className="logo" />
                 </Link>
-                <div className="headerMenu menu">
+                <div className={`headerMenu menu ${isMenuOpen ? "_active" : ""}`}>
                     <div className="menuIcon" onClick={handleMenuIconClick}>
                         <span></span>
                     </div>
-                    <nav className="menuBody">
+                    <nav className={`menuBody ${isMenuOpen ? "_active" : ""}`}>
                         <ul className="menuList">
                             <li>
                                 <Link
