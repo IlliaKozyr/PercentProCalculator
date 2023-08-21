@@ -1,9 +1,11 @@
+
 .header {
-    // position: fixed;
     padding: 20px 0px;
     top: 0;
     left: 0;
     width: 100%;
+
+    
 
     .headerContainer {
         max-width: 1300px;
@@ -36,11 +38,11 @@
                     text-decoration: none;
                     color: #6e6e6e;
                     font-size: 18px;
-                    
                 }
-                
+
                 .menuLink:hover {
                     opacity: 0.5;
+                    transition: 0.2s ease;
                 }
                 .menuLink.active:hover {
                     opacity: 1;
@@ -58,8 +60,9 @@
     display: none;
 }
 
-
 @media (max-width: 768px) {
+
+    
     .header {
         .logo {
             width: 200px;
@@ -89,6 +92,11 @@
                 padding-left: 0px;
                 align-items: flex-start;
                 font-size: 20px;
+                li {
+                    .menuLink {
+                        color: rgb(190, 190, 190);
+                    }
+                }
             }
             .menuList > li {
                 margin: 0px 0px 20px 0px;
@@ -155,4 +163,8 @@
             transform: rotate(45deg) translate(0px, 50%);
         }
     }
+}
+
+.header .menuBody .menuList li .menuLink.active  {
+    color: green;
 }

@@ -17,7 +17,7 @@ export const Header = () => {
     return (
         <div className="header">
             <div className="headerContainer">
-                <NavLink to="/сompound-interest">
+                <NavLink to="/">
                     <img src={logoImg} alt="logo" className="logo" />
                 </NavLink>
                 <div className={`headerMenu menu ${isMenuOpen ? "_active" : ""}`}>
