@@ -143,8 +143,9 @@ body {
 }
 
 .popup-wrap .popup-content::-webkit-scrollbar {
-    display: none;
+    display: none; 
 }
+
 .popup-wrap .popup-content span {
     width: 30px;
     height: 30px;
@@ -197,6 +198,11 @@ body {
         .result {
             font-size: 16px;
         }
+    }
+
+    .popup-wrap {
+        height: 100dvh;
+        width: 100dvw;
     }
 
     .popup-wrap .popup-content {
