@@ -40,7 +40,6 @@ export const СalculatorForm = () => {
 
     function openPopup() {
         let popup = document.querySelector(".popup-wrap");
-
         if (popup.classList.contains("is-active")) {
             popup.classList.remove("is-active");
         } else {

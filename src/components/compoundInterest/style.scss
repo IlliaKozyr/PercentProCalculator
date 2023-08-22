@@ -204,10 +204,13 @@ body {
         height: 100dvh;
         width: 100dvw;
     }
+    
     .popup-wrap .popup-content span {
-        left: 50%;
+        left: 90%;
+        top: 2%;
         z-index: 1000000;
     }
+
     .popup-wrap .popup-content {
         overflow: auto;
         border-radius: 0px;
@@ -225,6 +228,7 @@ body {
             margin-bottom: 20px;
         }
     }
+
     .container {
         margin: 0 auto;
         max-width: 1300px;
