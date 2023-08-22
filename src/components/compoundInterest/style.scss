@@ -147,6 +147,7 @@ body {
 }
 
 .popup-wrap .popup-content span {
+    display: block;
     width: 30px;
     height: 30px;
     position: sticky;
@@ -204,13 +205,11 @@ body {
         height: 100dvh;
         width: 100dvw;
     }
-    
     .popup-wrap .popup-content span {
-        left: 90%;
-        top: 2%;
-        z-index: 1000000;
+        left: 50%;
+        top: 10px;
+        z-index: 10000;
     }
-
     .popup-wrap .popup-content {
         overflow: auto;
         border-radius: 0px;
@@ -228,7 +227,6 @@ body {
             margin-bottom: 20px;
         }
     }
-
     .container {
         margin: 0 auto;
         max-width: 1300px;
