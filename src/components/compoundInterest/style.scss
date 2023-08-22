@@ -143,7 +143,7 @@ body {
 }
 
 .popup-wrap .popup-content::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 
 .popup-wrap .popup-content span {
@@ -204,7 +204,9 @@ body {
         height: 100dvh;
         width: 100dvw;
     }
-
+    .popup-wrap .popup-content span {
+        left: 90%;
+    }
     .popup-wrap .popup-content {
         overflow: auto;
         border-radius: 0px;
