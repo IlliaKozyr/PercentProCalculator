@@ -14,14 +14,13 @@
             font-size: 20px;
         }
     }
-
 }
 
-.scrollButtonPopup {
-    cursor: pointer;
-    padding: 10px;
-    background-color: rgba($color: #a6a6a6, $alpha: 0.5);
+.popup {
+    position: relative;
+    
 }
+
 
 
 @media (max-width: 768px) {

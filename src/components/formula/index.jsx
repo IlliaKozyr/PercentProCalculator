@@ -24,6 +24,8 @@ export const CompoundInterestFunc = (
     let incomeForTheYearPercentWithoutAttachment = 0;
     let earnedPercentage = 0;
 
+    let fullTaxPaid = 0;
+
     // principal - початкова сума (початковий капітал)
     // rate - річна процентна ставка у відсотках
     // time - кількість років (термін вкладу)
@@ -55,9 +57,10 @@ export const CompoundInterestFunc = (
             earnedPercentage = 0;
         }
 
-        
+    
         taxPaid = incomeInPercentage * 0.195;
-        amountMinusTax = amount - taxPaid;
+        fullTaxPaid = fullTaxPaid + taxPaid;
+        amountMinusTax = amount - fullTaxPaid;
         var periodData = {
             amount: parseFloat(amount.toFixed(2)),
             amountMinusTax: parseFloat(amountMinusTax.toFixed(2)),
@@ -70,6 +73,7 @@ export const CompoundInterestFunc = (
             earnedPercentage: parseFloat(earnedPercentage.toFixed(2)),
         };
 
+        store.addTaxPaid(parseFloat(fullTaxPaid.toFixed(2)));
         store.addNumberForOnePeriod(periodData);
     }
     

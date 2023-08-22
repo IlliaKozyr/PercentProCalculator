@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.scss";
 import { CompoundInterestFunc } from "../formula";
 import { store } from "../../store";
-import { FullInformation } from "./fullInfo";
+import { Popup } from "./popup";
 
 export const СalculatorForm = () => {
     const [initialAmount, setInitialAmount] = useState("0");
@@ -37,6 +37,7 @@ export const СalculatorForm = () => {
         setIsButtonDisabled(result <= 0);
     };
 
+
     function openPopup() {
         let popup = document.querySelector(".popup-wrap");
 
@@ -46,11 +47,14 @@ export const СalculatorForm = () => {
             popup.classList.add("is-active");
         }
     }
+    
 
     return (
         <>
             {Object.values(store).map((number, index) => (
+                
                 <div className="container" key={index}>
+                    {console.log(store.numbers.taxPaid)}
                     <div className="formBlock">
                         <div className="inputsLabelsContainer">
                             <div className="inputLabelBlock">
@@ -209,10 +213,7 @@ export const СalculatorForm = () => {
                                             Ви заплатите{" "}
                                             <span className="totalNumber">
                                                 {
-                                                    number.periodValues[
-                                                        number.periodValues
-                                                            .length - 1
-                                                    ].taxPaid
+                                                    number.taxPaid
                                                 }{" "}
                                                 грн.
                                             </span>{" "}
@@ -239,17 +240,7 @@ export const СalculatorForm = () => {
                                 >
                                     Детальна інформація
                                 </button>
-                                <div className="popup-wrap">
-                                    <div className="popup-content">
-                                        <span onClick={openPopup}></span>
-                                        <FullInformation
-                                            compoundingFrequency={
-                                                compoundingFrequency
-                                            }
-                                        />
-                                    </div>
-                                    
-                                </div>
+                                <Popup compoundingFrequency={compoundingFrequency}/>
                             </>
                         )}
                     </div>

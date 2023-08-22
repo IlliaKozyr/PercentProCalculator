@@ -1,0 +1,28 @@
+.popup-buttons-container {
+    position: sticky;
+    top: 90%;
+    z-index: 100000;
+}
+
+.scrollButtonPopup {
+    cursor: pointer;
+    position: absolute;
+    left: 95%;
+    background: none;
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+.flipped {
+   
+        transform: rotate(180deg); 
+      
+}
+
+@media (max-width: 767px) {
+    .scrollButtonPopup {
+        left: 90%;
+        
+    } 
+}

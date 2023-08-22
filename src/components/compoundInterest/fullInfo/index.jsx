@@ -2,22 +2,10 @@ import React from "react";
 import "./style.scss";
 import { store } from "../../../store";
 
+
 export const FullInformation = ({ compoundingFrequency }) => {
     return (
         <div className="popup">
-            <div className="popup-buttons-container">
-        <button
-            className="scrollButtonPopup"
-            onClick={() => {
-                const popupContent = document.querySelector(".popup-content");
-                if (popupContent) {
-                    popupContent.scrollTop = popupContent.scrollHeight;
-                }
-            }}
-        >
-            Прокрутити до низу
-        </button>
-    </div>
             {Object.values(store.numbers.periodValues).map((number, index) => (
                 <div className="fullInfoBlock" key={index}>
                     <ul className="fullInfoCard" key={index}>
