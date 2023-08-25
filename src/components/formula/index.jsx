@@ -6,7 +6,8 @@ export const CompoundInterestFunc = (
     time,
     n,
     additionalContribution,
-    tax
+    tax, 
+    choice
 ) => {
     // Перетворимо процентну ставку у десятковий формат
     const rateDecimal = rate / 100;
@@ -36,13 +37,22 @@ export const CompoundInterestFunc = (
     store.clearNumberForOnePeriod();
 
     for (let i = 0; i < periods; i++) {
-        lastYearsAmount = amount;
-        amount = amount * (1 + rateDecimal / n) + additionalContribution;
+
+        if (!choice) {
+            lastYearsAmount = amount;
+            amount = amount * (1 + rateDecimal / n) + additionalContribution;
+            
+        } else {
+            lastYearsAmount = amount;
+            amount = (amount + ((principal / 100 * rate) / n)) + additionalContribution;
+            console.log(amount, additionalContribution)
+        }
+         
+        // ТРЕБА ВІДКОРЕГУВАТИ ФОРМУЛУ В ПРОСТИХ ВІДСОТКАХ КАША
+
         year = i + 1;
         incomeForThePastYear = amount - lastYearsAmount;
         incomeInPercentage = incomeForThePastYear - additionalContribution;
-        // incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
-        // incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100);
         if (amount !== 0) {
             incomeForTheYearPercentFull = incomeForThePastYear / (amount / 100);
             incomeForTheYearPercentWithoutAttachment = incomeInPercentage / (amount / 100);
@@ -50,14 +60,14 @@ export const CompoundInterestFunc = (
             incomeForTheYearPercentFull = 0;
             incomeForTheYearPercentWithoutAttachment = 0;
         }
-        // earnedPercentage = ((amount - principal) / principal) * 100;
+        
         if (principal !== 0) {
             earnedPercentage = ((amount - principal) / principal) * 100;
         } else {
             earnedPercentage = 0;
         }
+        
 
-    
         taxPaid = incomeInPercentage * 0.195;
         fullTaxPaid = fullTaxPaid + taxPaid;
         amountMinusTax = amount - fullTaxPaid;

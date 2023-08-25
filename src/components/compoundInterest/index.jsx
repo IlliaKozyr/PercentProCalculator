@@ -14,6 +14,7 @@ export const СalculatorForm = () => {
     const [drawShowResult, setDrawShowResult] = useState(true);
     const [includeTax, setIncludeTax] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(showResult <= 0);
+    const [simpleOrComplex, setSimpleOrComplex] = useState(false)
 
     const handleCalculate = () => {
         const principal = Number(initialAmount);
@@ -22,6 +23,7 @@ export const СalculatorForm = () => {
         const n = Number(compoundingFrequency);
         const additional = Number(additionalContribution);
         const tax = includeTax;
+        const choice = simpleOrComplex;
 
         const result = CompoundInterestFunc(
             principal,
@@ -29,7 +31,8 @@ export const СalculatorForm = () => {
             time,
             n,
             additional,
-            tax
+            tax,
+            choice,
         );
 
         setShowResult(result);
@@ -53,8 +56,24 @@ export const СalculatorForm = () => {
             {Object.values(store).map((number, index) => (
                 
                 <div className="container" key={index}>
-                    {console.log(store.numbers.taxPaid)}
+                    
                     <div className="formBlock">
+                        <div className="simpleOrComplex">
+                            <label className={simpleOrComplex ? "" : "activeLabel"}>
+                                Складний відсоток
+                            </label>
+                            <input
+                                type="checkbox"
+                                className="inputCheckBox setting"
+                                checked={simpleOrComplex}
+                                onChange={(event) =>
+                                    setSimpleOrComplex(event.target.checked)
+                                }
+                            />
+                            <label className={simpleOrComplex ? "activeLabel" : ""}>
+                                Простий відсоток
+                            </label>
+                        </div>
                         <div className="inputsLabelsContainer">
                             <div className="inputLabelBlock">
                                 <label>Введіть початкову суму:</label>

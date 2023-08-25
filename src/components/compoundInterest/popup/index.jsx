@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.scss"
 import { PopupButtonScroll } from "./popupButtonScroll";
 import { FullInformation } from "../fullInfo";
 

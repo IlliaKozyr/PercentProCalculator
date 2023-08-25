@@ -18,22 +18,22 @@ export const MainPage = () => {
                                 to="/сompound-interest"
                                 className="button mainMenuLink"
                             >
-                                Калькулятор складного відсотка
+                                Калькулятор складного і простого відсотків
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link
-                                to="/simple-interest"
+                                to="/exchange-rates"
                                 className="button mainMenuLink"
                             >
-                                Калькулятор простого відсотка
+                                Обмін валют
                             </Link>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <Link to="/сapital-gain" className="button mainMenuLink">
                                 Приріст капіталу
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>

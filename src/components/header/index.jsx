@@ -32,10 +32,10 @@ export const Header = () => {
                                     className="menuLink"
                                     onClick={handleCloseBurger}
                                 >
-                                    Складний відсоток
+                                    Калькулятор відсотків
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink
                                     to="/simple-interest"
                                     className="menuLink"
@@ -43,8 +43,8 @@ export const Header = () => {
                                 >
                                     Простий відсоток
                                 </NavLink>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                                 <NavLink
                                     to="/сapital-gain"
                                     className="menuLink"
@@ -52,7 +52,7 @@ export const Header = () => {
                                 >
                                     Приріст капіталу
                                 </NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>
