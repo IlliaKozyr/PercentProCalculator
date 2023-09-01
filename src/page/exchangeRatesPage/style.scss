@@ -1,0 +1,78 @@
+.exchangeRatesPage {
+    overflow: auto;
+    display: flex;
+}
+
+.currencyCard {
+    width: 100%;
+    background-color: rgba(0, 128, 0, 0.329);
+    margin: 0px 10px;
+    border-radius: 15px;
+    padding: 10px;
+    .sellAndBuyBlock {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.currencyExchangeBlock {
+    padding-top: 20px;
+    width: 80%;
+    margin: 0 auto;
+    .currencyExchangeInput {
+        display: flex;
+        flex-direction: column;
+
+        .BuySellChange {
+            display: flex;
+            justify-content: space-around;
+            button {
+                width: 40%;
+                padding: 10px;
+                background: none;
+                font-size: 15px;
+            }
+            button.__active {
+                background-color: rgba(0, 128, 0, 0.329);
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgba(0, 128, 0, 0.33);
+                cursor: pointer;
+                transition: 0.5s ease;
+            }
+        }
+    }
+}
+
+.time {
+    padding: 10px 10px 15px 10px;
+    font-size: 25px;
+    color: green;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+    .currencyCard {
+        margin: 0;
+        padding: 5px 5px 5px 10px;
+        .sellAndBuyBlock {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            p {
+                margin: 0 0 5px 0;
+            }
+        }
+    }
+
+    .currencyCard:first-child {
+        margin: 0px 10px 0 0;
+    }
+}

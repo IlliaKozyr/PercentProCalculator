@@ -21,19 +21,20 @@ export const MainPage = () => {
                                 Калькулятор складного і простого відсотків
                             </Link>
                         </li>
-                        {/* <li>
+                        <li>
                             <Link
                                 to="/exchange-rates"
                                 className="button mainMenuLink"
                             >
                                 Обмін валют
                             </Link>
-                        </li> */}
-                        {/* <li>
-                            <Link to="/сapital-gain" className="button mainMenuLink">
-                                Приріст капіталу
+                        </li>
+                        <hr/>
+                        <li>
+                            <Link to="/certificate" className="button mainMenuLink">
+                                Довідка
                             </Link>
-                        </li> */}
+                        </li>
                     </ul>
                 </nav>
             </div>

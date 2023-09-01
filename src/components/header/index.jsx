@@ -35,24 +35,24 @@ export const Header = () => {
                                     Калькулятор відсотків
                                 </NavLink>
                             </li>
-                            {/* <li>
+                            <li>
                                 <NavLink
-                                    to="/simple-interest"
+                                    to="/exchange-rates"
                                     className="menuLink"
                                     onClick={handleCloseBurger}
                                 >
-                                    Простий відсоток
+                                    Обмін валют
                                 </NavLink>
-                            </li> */}
-                            {/* <li>
+                            </li>
+                            <li>
                                 <NavLink
-                                    to="/сapital-gain"
+                                    to="/certificate"
                                     className="menuLink"
                                     onClick={handleCloseBurger}
                                 >
-                                    Приріст капіталу
+                                    Довідка
                                 </NavLink>
-                            </li> */}
+                            </li>
                         </ul>
                     </nav>
                 </div>
