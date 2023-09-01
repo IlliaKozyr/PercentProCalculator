@@ -13,8 +13,6 @@ export const ExchangeRates = () => {
     const [changeName, setChangeName] = useState(" USD");
     const [currency, setCurrency] = useState(0)
 
-    console.log(currencyChange, "currencyChange", currency, "currency", result, 'result')
-
     useEffect(() => {
         const getRate = async () => {
             try {
@@ -70,7 +68,7 @@ export const ExchangeRates = () => {
                     <>
                         <div className="exchangeRatesPage">
                             {result.map((pieceOfData, index) => (
-                                <div className="currencyCard">
+                                <div key={index} className="currencyCard">
                                     <p>{pieceOfData?.txt}</p>
                                     <div className="sellAndBuyBlock">
                                         <p>Купити: {pieceOfData?.rate + 0.5}</p>
