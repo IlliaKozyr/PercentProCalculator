@@ -8,7 +8,6 @@ import { NotFound } from "./page/notFound";
 import { MainPage } from "./page/mainPage";
 import { ExchangeRates } from "./page/exchangeRatesPage";
 import { Certificate } from "./page/certificatePage";
-import { CertificateTextPage } from "./components/certificateTextPage";
 
 
 export const СompoundInterestCalculatorApp = observer(() => {
